@@ -1,4 +1,4 @@
-
+//function checks the license from the user input and adds the badge 
 function renderLicenseBadge(license) {
   let badge = ['MIT', 'GPLv2', 'Apache', 'BSD 3-clause', 'BSD 2-clause', 'LGPLv3', 'AGPLv3', 'none']
   if(license === badge[0]){
@@ -26,7 +26,7 @@ function renderLicenseBadge(license) {
     return ''
   }
 }
-
+//function adds the license frmo the user input to a string. if the user input was none then it adds there was no license  
 function renderLicenseInfo(license){
   let LicenseInfo
   if(license !== 'none'){
@@ -38,6 +38,7 @@ function renderLicenseInfo(license){
 
 }
 
+//generates the markdown file with all the user input
 function generateMarkdown(data) {
   const badge = renderLicenseBadge(data.license)
   const licenseInfo = renderLicenseInfo(data.license)

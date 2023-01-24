@@ -1,7 +1,10 @@
-
+//imports inpuirer node module
 const inquirer = require('inquirer');
+//imports fs
 const fs = require('fs');
+//imports code from gnerate markdown js file
 const genMkdn = require('./utils/generateMarkdown');
+//array of questions for inquirer
 const questions = [
     {
         type: 'input',
@@ -32,7 +35,7 @@ const questions = [
     {
         type: 'input',
         name: 'contributing',
-        message: 'List any devolpers you collaborated wiht on the project wiht links to their github profiles:',
+        message: 'List any devolpers you collaborated with on the project with links to their github profiles:',
     },
     {
         type: 'input',
@@ -56,14 +59,15 @@ const questions = [
     },
 ];
 
-
+//writes read me file with the user input to a file
 function writeToFile(fileName, data) {
+    //genMkdn calls function from the generatemarkdown.js file
     fs.writeFile(fileName, genMkdn(data), (err) => {
         err ? console.log(err) : console.log('Success!');
     });
 };
 
-
+//runs inquirer
 function init() {
     inquirer
     .prompt(questions)

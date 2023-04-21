@@ -72,7 +72,7 @@ function init() {
     inquirer
     .prompt(questions)
     .then(answers => {
-        writeToFile(answers.fileName, answers)
+        writeToFile(`${answers.fileName}.md`, answers)
     });
 };
 // Function call to initialize app
